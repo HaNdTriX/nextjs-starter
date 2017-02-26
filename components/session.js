@@ -10,7 +10,7 @@
 
 export default class Session {
 
-  constructor({req} = {}) {
+  constructor ({req} = {}) {
     this._session = {}
     try {
       if (req) {
@@ -33,7 +33,7 @@ export default class Session {
     }
   }
 
-  static async getCsrfToken() {
+  static async getCsrfToken () {
     return new Promise((resolve, reject) => {
       if (typeof window === 'undefined') {
         return reject(Error('This method should only be called on the client'))
@@ -61,7 +61,7 @@ export default class Session {
   // We can't do async requests in the constructor so access is via asyc method
   // This allows us to use XMLHttpRequest when running on the client to fetch it
   // Note: We use XMLHttpRequest instead of fetch so auth cookies are passed
-  async getSession(forceUpdate) {
+  async getSession (forceUpdate) {
     // If running on the server, return session as will be loaded in constructor
     if (typeof window === 'undefined') {
       return new Promise(resolve => {
@@ -116,7 +116,7 @@ export default class Session {
     })
   }
 
-  async signin(email) {
+  async signin (email) {
     // Sign in to the server
     return new Promise(async (resolve, reject) => {
       if (typeof window === 'undefined') {
@@ -149,7 +149,7 @@ export default class Session {
     })
   }
 
-  async signout() {
+  async signout () {
     // Signout from the server
     return new Promise(async (resolve, reject) => {
       if (typeof window === 'undefined') {
@@ -179,14 +179,14 @@ export default class Session {
   // The Web Storage API is widely supported, but not always available (e.g.
   // it can be restricted in private browsing mode, triggering an exception).
   // We handle that silently by just returning null here.
-  _getLocalStore(name) {
+  _getLocalStore (name) {
     try {
       return JSON.parse(window.localStorage.getItem(name))
     } catch (err) {
       return null
     }
   }
-  _saveLocalStore(name, data) {
+  _saveLocalStore (name, data) {
     try {
       window.localStorage.setItem(name, JSON.stringify(data))
       return true
@@ -194,7 +194,7 @@ export default class Session {
       return false
     }
   }
-  _removeLocalStore(name) {
+  _removeLocalStore (name) {
     try {
       window.localStorage.removeItem(name)
       return true

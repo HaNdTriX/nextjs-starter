@@ -4,21 +4,21 @@ import Footer from './footer'
 
 export default class extends React.Component {
 
-  static propTypes() {
+  static propTypes () {
     return {
       session: React.PropTypes.object.isRequired,
       children: React.PropTypes.object.isRequired
     }
   }
 
-  render() {
+  render () {
     return (
       <div>
-        <Header session={this.props.session}/>
-        <div className="container">
+        <Header session={this.props.session} />
+        <div className='container'>
           { this.props.children }
         </div>
-        <Footer/>
+        <Footer />
       </div>
     )
   }

@@ -54,7 +54,7 @@ exports.configure = ({
         clientSecret: process.env.FACEBOOK_SECRET
       },
       scope: ['email', 'user_location'],
-      getUserFromProfile(profile) {
+      getUserFromProfile (profile) {
         return {
           id: profile.id,
           name: profile.displayName,
@@ -73,7 +73,7 @@ exports.configure = ({
         clientSecret: process.env.GOOGLE_SECRET
       },
       scope: 'profile email',
-      getUserFromProfile(profile) {
+      getUserFromProfile (profile) {
         return {
           id: profile.id,
           name: profile.displayName,
@@ -92,7 +92,7 @@ exports.configure = ({
         consumerSecret: process.env.TWITTER_SECRET
       },
       scope: null,
-      getUserFromProfile(profile) {
+      getUserFromProfile (profile) {
         return {
           id: profile.id,
           name: profile.displayName,

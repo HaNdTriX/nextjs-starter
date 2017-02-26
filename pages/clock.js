@@ -15,23 +15,23 @@ import Clock from '../components/clock'
 
 class Counter extends React.Component {
 
-  static getInitialProps({ store, isServer }) {
+  static getInitialProps ({ store, isServer }) {
     store.dispatch({type: 'TICK', light: !isServer, ts: Date.now()})
     return {isServer}
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.timer = this.props.dispatch(startClock())
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     clearInterval(this.timer)
   }
 
-  render() {
+  render () {
     const {lastUpdate, light} = this.props
     return (
-      <Clock lastUpdate={lastUpdate} light={light}/>
+      <Clock lastUpdate={lastUpdate} light={light} />
     )
   }
 

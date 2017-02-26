@@ -7,19 +7,19 @@ import React from 'react'
 
 export default class Error extends React.Component {
 
-  static propTypes() {
+  static propTypes () {
     return {
       errorCode: React.PropTypes.number.isRequired,
       url: React.PropTypes.string.isRequired
     }
   }
 
-  static getInitialProps({res, xhr}) {
+  static getInitialProps ({res, xhr}) {
     const errorCode = res ? res.statusCode : xhr.status
     return {errorCode}
   }
 
-  render() {
+  render () {
     const css = (
       <Head>
         <style>{`
@@ -42,7 +42,7 @@ export default class Error extends React.Component {
             {css}
             <h1>Page Not Found</h1>
             <p>The page <strong>{ this.props.url.pathname }</strong> does not exist.</p>
-            <p><Link href="/"><a>Home</a></Link></p>
+            <p><Link href='/'><a>Home</a></Link></p>
           </div>
         )
         break

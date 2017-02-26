@@ -8,7 +8,7 @@ import Layout from '../components/layout'
 
 export default class extends Page {
 
-  render() {
+  render () {
     return (
       <Layout session={this.props.session}>
         <Head>
@@ -39,13 +39,13 @@ export default class extends Page {
           This behaviour is enabled through the additional webpack configuration in <strong>next.config.js</strong>.
         </p>
         <p>
-          For more details see <a href="https://github.com/davibe/next.js-css-global-style-test">https://github.com/davibe/next.js-css-global-style-test</a>.
+          For more details see <a href='https://github.com/davibe/next.js-css-global-style-test'>https://github.com/davibe/next.js-css-global-style-test</a>.
         </p>
         <h3>Inline CSS</h3>
         <p>This page also has custom elements that are included on on this page as inline CSS.</p>
-        <p className="styled-text">This text will change colour if you hover over it or resize the window.</p>
+        <p className='styled-text'>This text will change colour if you hover over it or resize the window.</p>
         <p style={{color: 'white', backgroundColor: 'purple'}}>This text is styled using inline styling.</p>
-        <p>CSS defined using JSX as in this example <a href="https://github.com/zeit/next.js/#css">scopes the styling to this component</a>.</p>
+        <p>CSS defined using JSX as in this example <a href='https://github.com/zeit/next.js/#css'>scopes the styling to this component</a>.</p>
       </Layout>
     )
   }

@@ -5,7 +5,7 @@ import Session from '../../components/session'
 
 export default class extends Page {
 
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       email: ''
@@ -14,11 +14,11 @@ export default class extends Page {
     this.handleEmailChange = this.handleEmailChange.bind(this)
   }
 
-  handleEmailChange(event) {
+  handleEmailChange (event) {
     this.setState({email: event.target.value.trim()})
   }
 
-  async handleSubmit(event) {
+  async handleSubmit (event) {
     event.preventDefault()
 
     const session = new Session()
@@ -32,27 +32,27 @@ export default class extends Page {
     })
   }
 
-  render() {
-    let signinForm = <div/>
+  render () {
+    let signinForm = <div />
     if (!this.props.session.user) {
       signinForm = (
         <div>
-          <form id="signin" method="post" action="/auth/email/signin" onSubmit={this.handleSubmit}>
-            <input name="_csrf" type="hidden" value={this.props.session.csrfToken}/>
+          <form id='signin' method='post' action='/auth/email/signin' onSubmit={this.handleSubmit}>
+            <input name='_csrf' type='hidden' value={this.props.session.csrfToken} />
             <h3>Sign in with email</h3>
             <p>
-              <label htmlFor="email">Email address</label><br/>
-              <input name="email" type="text" placeholder="j.smith@example.com" id="email" value={this.state.email} onChange={this.handleEmailChange}/>
+              <label htmlFor='email'>Email address</label><br />
+              <input name='email' type='text' placeholder='j.smith@example.com' id='email' value={this.state.email} onChange={this.handleEmailChange} />
             </p>
             <p>
-              <button id="submitButton" type="submit">Sign in</button>
+              <button id='submitButton' type='submit'>Sign in</button>
             </p>
           </form>
           <h3>Sign in with oAuth</h3>
           <p>
-            <a className="button button-oauth button-facebook" href="/auth/oauth/facebook">Sign in with Facebook</a>
-            <a className="button button-oauth button-google" href="/auth/oauth/google">Sign in with Google</a>
-            <a className="button button-oauth button-twitter" href="/auth/oauth/twitter">Sign in with Twitter</a>
+            <a className='button button-oauth button-facebook' href='/auth/oauth/facebook'>Sign in with Facebook</a>
+            <a className='button button-oauth button-google' href='/auth/oauth/google'>Sign in with Google</a>
+            <a className='button button-oauth button-twitter' href='/auth/oauth/twitter'>Sign in with Twitter</a>
           </p>
         </div>
       )
@@ -88,7 +88,7 @@ export default class extends Page {
         </p>
         <p>
           To use the oAuth sign in options, you will need to create your own account with each provider and configure each one for your site.
-          This can be a slightly cumbersome process that is hard to debug. See <a href="https://github.com/iaincollins/nextjs-starter/blob/master/AUTHENTICATION.md">AUTHENTICATION.md</a> for a step-by-step guide.
+          This can be a slightly cumbersome process that is hard to debug. See <a href='https://github.com/iaincollins/nextjs-starter/blob/master/AUTHENTICATION.md'>AUTHENTICATION.md</a> for a step-by-step guide.
         </p>
         <p>
           If you aren&#39;t receiving emails when trying to sign in via email, try using another email address or
